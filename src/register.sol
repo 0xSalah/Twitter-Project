@@ -2,6 +2,7 @@
 pragma solidity ^0.8.13;
 
 contract register {
+    string[3] public honoredUsers = ["bc5.n","iiissvvee","7v_q21"];
     mapping(address => string) public username;
     mapping(string => address) public usernameToAddress;
 
@@ -12,6 +13,15 @@ contract register {
     modifier newUsername(string memory _username) {
         require(usernameToAddress[_username] == address(0), "username is alredy used");
         _;
+    }
+    function isHonoredUsers(string memory _username) public {
+        for(uint i = 0; i < honoredUsers.length; i++){
+            if(keccak256(abi.encodePacked(_username) == keccak256(abi.encodePacked(honoredUsers[i]))){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
     function registerUsername(string memory _username) public newUsername(_username) {
