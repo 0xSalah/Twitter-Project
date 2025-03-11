@@ -14,15 +14,7 @@ contract register {
         require(usernameToAddress[_username] == address(0), "username is alredy used");
         _;
     }
-    function isHonoredUsers(string memory _username) public {
-        for(uint i = 0; i < honoredUsers.length; i++){
-            if(keccak256(abi.encodePacked(_username) == keccak256(abi.encodePacked(honoredUsers[i]))){
-                return true;
-            }else{
-                return false;
-            }
-        }
-    }
+   
 
     function registerUsername(string memory _username) public newUsername(_username) {
         username[msg.sender] = _username;
