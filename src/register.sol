@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 contract register {
-    string[3] public honoredUsers = ["bc5.n","iiissvvee","7v_q21"];
+    string[3] public honoredUsers = ["bc5.n", "iiissvvee", "7v_q21"];
     mapping(address => string) public username;
     mapping(string => address) public usernameToAddress;
 
@@ -14,7 +14,6 @@ contract register {
         require(usernameToAddress[_username] == address(0), "username is alredy used");
         _;
     }
-   
 
     function registerUsername(string memory _username) public newUsername(_username) {
         username[msg.sender] = _username;
