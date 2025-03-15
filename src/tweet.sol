@@ -19,6 +19,7 @@ contract tweet is register {
     }
 
     mapping(uint256 => mapping(address => bool)) likedBy;
+    string[] liks;
 
     S_Tweet[] tweets;
 
